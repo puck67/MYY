@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    p {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+  <title>Ngày Sinh</title>
+</head>
+<body>
+  <h1>Máy dự đoán ngày sinh của thầy Phúc</h1>
+
+  <label for="birthday">Nhập ngày sinh của bà vào đây đi :</label>
+  <input type="date" id="birthday" name="birthday">
+
+  <button onclick="guessBirthday()">Đoán</button>
+
+  <p id="result"></p>
+
+  <script>
+    function guessBirthday() {
+      const birthdayInput = document.getElementById('birthday');
+      const birthday = new Date(birthdayInput.value);
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedBirthday = birthday.toLocaleDateString('en-US', options);
+
+      const resultParagraph = document.getElementById('result');
+      resultParagraph.textContent = `Sời quá dễ ngày sinh của bà là: ${formattedBirthday} đúng hong `;
+    }
+  </script>
+</body>
+</html>
